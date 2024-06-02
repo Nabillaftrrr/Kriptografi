@@ -1,6 +1,12 @@
 function encryptMessage() {
     const message = document.getElementById('message').value;
     const shift = parseInt(document.getElementById('shift').value);
+
+    if (isNaN(shift)) {
+        alert("Please enter a valid number for shift.");
+        return;
+    }
+
     const encryptedMessage = caesarCipher(message, shift);
     document.getElementById('encryptedMessage').innerText = encryptedMessage;
 }
